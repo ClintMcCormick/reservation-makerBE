@@ -2,9 +2,11 @@ package com.mccormick.reservationmaker.controllers;
 
 import com.mccormick.reservationmaker.repository.ReservationRepository;
 import com.mccormick.reservationmaker.reservation.Reservation;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/reservations")
@@ -34,6 +36,7 @@ public class ReservationController {
 
     @PutMapping
     public void addReservation(@RequestBody Reservation reservation){
+        reservation.setResId(UUID.randomUUID().toString());
         this.reservationRepository.insert(reservation);
     }
 

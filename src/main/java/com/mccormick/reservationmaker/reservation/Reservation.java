@@ -17,7 +17,7 @@ public class Reservation {
     @Id
     private String resId;
 
-    private Guest guest;
+    private User user;
     private Restaurant restaurant;
     private int numPeople;
     private String dateTime;
